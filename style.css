@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-image: url(./images/pink-star-background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    width: 100vw;
+    height: 20vh;
+}
+
+header #title {
+    background-color: rgb(240, 155, 201);
+    color: rgb(123, 16, 73);
+    font-size: 2rem;
+
+    padding: 6vh 10vw;
+    margin: 1rem;
+
+    border: 2px solid deeppink;
+    border-radius: 1rem;
+}
