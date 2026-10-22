@@ -35,7 +35,7 @@ header #title {
     flex-direction: column;
     gap: 0.5rem;
 
-    padding: 3vh 7vw;
+    padding: 4vh 7vw;
     margin: 1rem;
 
     border: 2px solid deeppink;
@@ -78,4 +78,36 @@ input::placeholder {
 
     border-radius: 0.7rem;
     border: 2px solid deeppink;
+}
+
+
+
+#error-text {
+    color: rgb(255, 115, 0);
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    padding: 1vh 4vw;
+}
+
+
+
+#task-counter {
+    color: rgb(255, 0, 136);
+    text-align: center;
+    font-size: 1.3rem;
+
+    padding: 1vh 4vw;
+}
+
+
+
+.taskStyle {
+    background-color: rgb(240, 155, 201);
+
+    border: 2px solid deeppink;
+    border-radius: 1rem;
+
+    margin: 1rem;
 }
