@@ -103,6 +103,17 @@ input::placeholder {
 
 
 
+#task-list {
+    background-color: rgba(240, 155, 200, 0.499);
+
+    border-radius: 1rem;
+
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+
+
 .taskStyle {
     background-color: rgb(240, 155, 201);
 
@@ -110,4 +121,21 @@ input::placeholder {
     border-radius: 1rem;
 
     margin: 1rem;
+}
+
+
+
+@media screen and (min-width: 900px ){
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #form-box {
+        width: 50%;
+    }
+
+    #task-list {
+        width: 50%;
+    }
 }
