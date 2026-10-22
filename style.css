@@ -62,6 +62,8 @@ header #title {
 
     border-radius: 0.7rem;
     border: 2px solid deeppink;
+
+    padding: 1rem;
 }
 
 input::placeholder {
@@ -144,7 +146,9 @@ input::placeholder {
 .btnStyle {
     background-color: rgb(176, 255, 255);
     color: rgb(123, 16, 73);
+    
     font-weight: bold;
+    text-decoration: none;
 
     height: 2rem;
     width: 2rem;
@@ -155,6 +159,16 @@ input::placeholder {
     margin-left: 1rem;
 }
 
+.btnStyle:hover {
+    background-color: rgb(246, 167, 70);
+
+    border: 2px solid rgb(186, 90, 0);
+}
+
+.todoDone {
+    text-decoration: line-through;
+    color: rgba(123, 16, 73, 0.447);
+}
 
 
 @media screen and (min-width: 900px ){
