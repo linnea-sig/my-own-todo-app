@@ -41,9 +41,11 @@ function render() {
     todoList.textContent = "";
 
     let doneCounter = todos.filter(todo => todo.done).length;
-    taskCounter.textContent = `${doneCounter} tasks done of`
+    let totalTasks = todos.length;
+    taskCounter.textContent = `${doneCounter} tasks done of ${totalTasks} total`;
 
     for (let i = 0; i < todos.length; i++) {
+
         const todoLi = createTextElement("li", "");
         todoLi.classList.add("todoStyle");
 
@@ -96,7 +98,6 @@ todoForm.addEventListener("submit", function (event) {
     }
 
     errorText.textContent = "";
-
 
     const todoObj = {
         task: todoText,
