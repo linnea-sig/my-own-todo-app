@@ -14,19 +14,68 @@ body {
     background-attachment: fixed;
 }
 
-header {
-    width: 100vw;
-    height: 20vh;
-}
-
 header #title {
     background-color: rgb(240, 155, 201);
     color: rgb(123, 16, 73);
     font-size: 2rem;
 
-    padding: 6vh 10vw;
+    padding: 4vh 10vw;
     margin: 1rem;
 
     border: 2px solid deeppink;
     border-radius: 1rem;
+}
+
+
+
+#todo-form {
+    background-color: rgb(240, 155, 201);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    padding: 3vh 7vw;
+    margin: 1rem;
+
+    border: 2px solid deeppink;
+    border-radius: 1rem;
+}
+
+#todo-form label {
+    color: rgb(75, 10, 45);
+    font-size: 1.2rem;
+}
+
+#input-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+#todo-input {
+    background-color: rgb(255, 219, 238);
+
+    height: 3rem;
+    width: 79%;
+
+    border-radius: 0.7rem;
+    border: 2px solid deeppink;
+}
+
+input::placeholder {
+    color: rgb(75, 10, 45);
+    opacity: 50%;
+
+    padding: 0.5rem;
+}
+
+#todo-form button {
+    background-color: rgb(255, 82, 174);
+    color: rgb(123, 16, 73);
+
+    width: 19%;
+    height: 3rem;
+
+    border-radius: 0.7rem;
+    border: 2px solid deeppink;
 }
