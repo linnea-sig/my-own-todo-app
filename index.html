@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
+    <title>My to do app</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">My Todo</h1>
+    </header>
+
+    <main>
+        <form id="todo-form">
+            <label for="todo-input">New todo</label>
+            <input type="text" id="todo-input" placeholder="What needs to be done?">
+
+            <button type="submit">Add</button>
+        </form>
+
+        <p id="error-text"></p>
+
+        <ul id="task-list"></ul>
+    </main>
+
+    <footer>
+        <p id="task-counter"></p>
+    </footer>
+</body>
+
+</html>
