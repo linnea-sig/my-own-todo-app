@@ -32,9 +32,7 @@ header #title {
 main {
     display: flex;
     flex-direction: column;
-}
 
-#form-box {
     padding-top: 1rem;
 }
 
@@ -111,18 +109,6 @@ input::placeholder {
     width: 100%;
 }
 
-
-#task-counter {
-    color: rgb(255, 0, 136);
-    text-align: center;
-    font-size: 1.3rem;
-
-    padding: 1vh 4vw;
-    margin: 1rem;
-}
-
-
-
 #todo-list {
     background-color: rgba(240, 155, 200, 0.499);
 
@@ -133,6 +119,66 @@ input::placeholder {
     border-radius: 1rem;
 
     padding: 1.5rem;
+    margin: 1rem;
+}
+
+
+
+#btn-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 1rem;
+}
+
+#btn-box button {
+    font-weight: bold;
+
+    width: 7rem;
+    height: 3rem;
+
+    border-radius: 0.7rem;
+}
+
+#clear-btn {
+    background-color: rgb(247, 137, 110);
+    color: rgb(198, 51, 2);
+    border: 2px solid rgb(243, 69, 0);
+}
+
+#undo-btn {
+    background-color: rgb(247, 185, 110);
+    color: rgb(198, 97, 2);
+    border: 2px solid rgb(243, 117, 0);
+}
+
+#show-all-btn {
+    background-color: rgb(110, 247, 211);
+    color: rgb(2, 198, 136);
+    border: 2px solid rgb(0, 243, 174);
+}
+
+#show-active-btn {
+    background-color: rgb(110, 245, 247);
+    color: rgb(2, 195, 198);
+    border: 2px solid rgb(0, 243, 227);
+}
+
+#show-done-btn {
+    background-color: rgb(110, 201, 247);
+    color: rgb(2, 139, 198);
+    border: 2px solid rgb(0, 150, 243);
+}
+
+
+
+#task-counter {
+    color: rgb(255, 0, 136);
+    text-align: center;
+    font-size: 1.3rem;
+
+    padding: 1vh 4vw;
     margin: 1rem;
 }
 
