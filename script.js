@@ -7,6 +7,13 @@ const todoList = document.querySelector("#todo-list");
 
 const taskCounter = document.querySelector("#task-counter");
 
+const clearBtn = document.querySelector("#clear-btn");
+const clearDoneBtn = document.querySelector("#clear-done-btn");
+const undoBtn = document.querySelector("#undo-btn");
+const showAllBtn = document.querySelector("#show-all-btn");
+const showActiveBtn = document.querySelector("#show-active-btn");
+const showDoneBtn = document.querySelector("#show-done-btn");
+
 
 
 let todos = [];
@@ -110,6 +117,26 @@ todoForm.addEventListener("submit", function (event) {
     save()
     render();
 });
+
+
+clearBtn.addEventListener("click", function() {
+    todos.splice(0, todos.length);
+    save();
+    render();
+})
+
+clearDoneBtn.addEventListener("click", function() {
+    let doneTodos = todos.filter(todo => !todo.done);
+    doneTodos.splice(0, doneTodos.length);
+    save();
+    render();
+})
+
+undoBtn.addEventListener("click", function() {
+    todos.pop()
+    save();
+    render();
+})
 
 
 
