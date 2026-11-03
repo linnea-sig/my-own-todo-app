@@ -126,16 +126,23 @@ input::placeholder {
 
 #btn-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 
     margin: 1rem;
+    gap: 1rem;
+}
+
+#btn-remove-box, #btn-filter-box {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.3rem;
 }
 
 #btn-box button {
     font-weight: bold;
 
-    width: 7rem;
+    width: 4rem;
     height: 3rem;
 
     border-radius: 0.7rem;
@@ -247,15 +254,20 @@ input::placeholder {
     }
 
     #form-box {
-        width: 100%;
+        width: 50%;
     }
 
     #list-box {
+        width: 50%;
         display: flex;
         flex-direction: column;
     }
 
     #todo-list {
         width: auto;
+    }
+
+    #btn-box {
+        flex-direction: row;
     }
 }

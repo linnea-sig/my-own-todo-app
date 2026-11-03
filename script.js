@@ -126,8 +126,7 @@ clearBtn.addEventListener("click", function() {
 })
 
 clearDoneBtn.addEventListener("click", function() {
-    let doneTodos = todos.filter(todo => !todo.done);
-    doneTodos.splice(0, doneTodos.length);
+    todos = todos.filter(todo => !todo.done);
     save();
     render();
 })
