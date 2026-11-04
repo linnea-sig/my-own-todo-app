@@ -17,6 +17,7 @@ const showDoneBtn = document.querySelector("#show-done-btn");
 
 
 let todos = [];
+let deletedHistory = [];
 let currentFilter = "all";
 
 
@@ -85,7 +86,9 @@ function render() {
             event.stopPropagation();
 
             const originalIndex = todos.indexOf(todo);
-            todos.splice(originalIndex, 1);
+            const removedItems = todos.splice(originalIndex, 1);
+            deletedHistory.push(removedItems[0]);
+            
             save();
             render();
         });
@@ -143,9 +146,13 @@ clearDoneBtn.addEventListener("click", function() {
 })
 
 undoBtn.addEventListener("click", function() {
-    todos.pop()
-    save();
-    render();
+    if (deletedHistory.length > 0) {
+        const restoredTodo = deletedHistory.pop()
+        todos.push(restoredTodo);
+
+        save();
+        render();
+    }
 })
 
 
