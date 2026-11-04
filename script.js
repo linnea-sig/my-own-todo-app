@@ -19,6 +19,7 @@ const showDoneBtn = document.querySelector("#show-done-btn");
 let todos = [];
 let deletedHistory = [];
 let currentFilter = "all";
+let clickTimer = null;
 
 
 
@@ -66,7 +67,7 @@ function render() {
         const todoLi = createTextElement("li", "");
         todoLi.classList.add("todoStyle");
 
-        const taskText = createTextElement("span", todos[i].task)
+        const taskText = createTextElement("span", todo.task)
 
         if (todo.done) {
             taskText.classList.add("todoDone");
@@ -74,9 +75,56 @@ function render() {
 
         taskText.addEventListener("click", function (event) {
             event.stopPropagation();
-            todo.done = !todo.done;
-            save();
-            render();
+
+            if (clickTimer !== null) {
+                clearTimeout(clickTimer);
+                clickTimer = null;
+                return;
+            }
+
+            clickTimer = setTimeout(function () {
+                clickTimer = null;
+
+                todo.done = !todo.done;
+                save();
+                render();
+            }, 250);
+        });
+
+        taskText.addEventListener("dblclick", function (event) {
+            event.stopPropagation();
+
+            if (clickTimer !== null) {
+                clearTimeout(clickTimer);
+                clickTimer = null;
+            }
+
+            const editInput = document.createElement("input");
+            editInput.type = "text";
+            editInput.value = todo.task;
+            editInput.classList.add("todoStyle");
+
+            todoLi.replaceChild(editInput, taskText);
+            editInput.focus();
+
+            function saveEdit() {
+                const newText = editInput.value.trim();
+                if (newText !== "") {
+                    todo.task = newText;
+                    save();
+                }
+                render();
+            }
+
+            editInput.addEventListener("keydown", function (e) {
+                if (e.key === "Enter") {
+                    saveEdit();
+                }
+            });
+
+            editInput.addEventListener("blur", function () {
+                saveEdit();
+            });
         });
 
         const xBtn = createTextElement("button", "X");
@@ -88,7 +136,7 @@ function render() {
             const originalIndex = todos.indexOf(todo);
             const removedItems = todos.splice(originalIndex, 1);
             deletedHistory.push(removedItems[0]);
-            
+
             save();
             render();
         });
@@ -133,19 +181,19 @@ todoForm.addEventListener("submit", function (event) {
 });
 
 
-clearBtn.addEventListener("click", function() {
+clearBtn.addEventListener("click", function () {
     todos.splice(0, todos.length);
     save();
     render();
 })
 
-clearDoneBtn.addEventListener("click", function() {
+clearDoneBtn.addEventListener("click", function () {
     todos = todos.filter(todo => !todo.done);
     save();
     render();
 })
 
-undoBtn.addEventListener("click", function() {
+undoBtn.addEventListener("click", function () {
     if (deletedHistory.length > 0) {
         const restoredTodo = deletedHistory.pop()
         todos.push(restoredTodo);
@@ -157,17 +205,17 @@ undoBtn.addEventListener("click", function() {
 
 
 
-showAllBtn.addEventListener("click", function() {
+showAllBtn.addEventListener("click", function () {
     currentFilter = "all";
     render();
 })
 
-showActiveBtn.addEventListener("click", function() {
+showActiveBtn.addEventListener("click", function () {
     currentFilter = "active";
     render();
 })
 
-showDoneBtn.addEventListener("click", function() {
+showDoneBtn.addEventListener("click", function () {
     currentFilter = "done";
     render();
 })
