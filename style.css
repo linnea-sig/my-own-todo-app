@@ -246,6 +246,10 @@ input::placeholder {
     color: rgba(123, 16, 73, 0.447);
 }
 
+.hidden {
+    display: none;
+}
+
 
 @media screen and (min-width: 900px ){
     main {

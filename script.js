@@ -17,6 +17,7 @@ const showDoneBtn = document.querySelector("#show-done-btn");
 
 
 let todos = [];
+let currentFilter = "all";
 
 
 
@@ -51,20 +52,28 @@ function render() {
     let totalTasks = todos.length;
     taskCounter.textContent = `${doneCounter} tasks done of ${totalTasks} total`;
 
-    for (let i = 0; i < todos.length; i++) {
+    let filteredTodos = todos;
+    if (currentFilter === "active") {
+        filteredTodos = todos.filter(todo => !todo.done);
+    } else if (currentFilter === "done") {
+        filteredTodos = todos.filter(todo => todo.done);
+    }
+
+    for (let i = 0; i < filteredTodos.length; i++) {
+        const todo = filteredTodos[i];
 
         const todoLi = createTextElement("li", "");
         todoLi.classList.add("todoStyle");
 
         const taskText = createTextElement("span", todos[i].task)
 
-        if (todos[i].done) {
+        if (todo.done) {
             taskText.classList.add("todoDone");
         }
 
         taskText.addEventListener("click", function (event) {
             event.stopPropagation();
-            todos[i].done = !todos[i].done;
+            todo.done = !todo.done;
             save();
             render();
         });
@@ -74,7 +83,9 @@ function render() {
 
         xBtn.addEventListener("click", function (event) {
             event.stopPropagation();
-            todos.splice(i, 1);
+
+            const originalIndex = todos.indexOf(todo);
+            todos.splice(originalIndex, 1);
             save();
             render();
         });
@@ -139,3 +150,17 @@ undoBtn.addEventListener("click", function() {
 
 
 
+showAllBtn.addEventListener("click", function() {
+    currentFilter = "all";
+    render();
+})
+
+showActiveBtn.addEventListener("click", function() {
+    currentFilter = "active";
+    render();
+})
+
+showDoneBtn.addEventListener("click", function() {
+    currentFilter = "done";
+    render();
+})
