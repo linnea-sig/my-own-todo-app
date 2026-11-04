@@ -56,16 +56,11 @@ main {
     font-weight: bold;
 }
 
-#input-box {
-    display: flex;
-    justify-content: space-between;
-}
-
 #todo-input {
     background-color: rgb(255, 219, 238);
 
     height: 3rem;
-    width: 79%;
+    width: 100%;
 
     border-radius: 0.7rem;
     border: 2px solid deeppink;
@@ -80,7 +75,25 @@ input::placeholder {
     padding: 0.5rem;
 }
 
-#todo-form button {
+#select-btn-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+#priority-select {
+    background-color: rgb(255, 219, 238);
+    color: rgb(123, 16, 73);
+
+    height: 3rem;
+    width: 79%;
+
+    padding-left: 1.5rem;
+
+    border-radius: 0.7rem;
+    border: 2px solid deeppink;
+}
+
+#select-btn-box button {
     background-color: rgb(255, 82, 174);
     color: rgb(123, 16, 73);
     font-weight: bold;

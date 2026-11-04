@@ -18,8 +18,16 @@
         <div id="form-box">
             <form id="todo-form">
                 <label for="todo-input">New to do</label>
-                <div id="input-box">
-                    <input type="text" id="todo-input" placeholder="What needs to be done?">
+                <input type="text" id="todo-input" placeholder="What needs to be done?">
+                
+                <div id="select-btn-box">
+                    <select id="priority-select">
+                        <option value="">--Please choose an option--</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                    
                     <button type="submit">Add</button>
                 </div>
             </form>
